@@ -7,7 +7,7 @@ import org.greenrobot.greendao.annotation.NotNull;
 import org.greenrobot.greendao.annotation.Generated;
 
 @Entity(indexes = {
-				@Index(value = "text, date DESC", unique = true)
+				@Index(value = "title, date DESC", unique = true)
 })
 
 public class NoteEntity {
@@ -19,13 +19,16 @@ public class NoteEntity {
 		private String key;
 
 		@NotNull
-		private String text;
+		private String title;
+		private String content;
 		private Long date;
-		@Generated(hash = 1948125927)
-		public NoteEntity(Long id, String key, @NotNull String text, Long date) {
+		@Generated(hash = 1013106188)
+		public NoteEntity(Long id, String key, @NotNull String title, String content,
+				Long date) {
 			this.id = id;
 			this.key = key;
-			this.text = text;
+			this.title = title;
+			this.content = content;
 			this.date = date;
 		}
 		@Generated(hash = 734234824)
@@ -43,11 +46,17 @@ public class NoteEntity {
 		public void setKey(String key) {
 			this.key = key;
 		}
-		public String getText() {
-			return this.text;
+		public String getTitle() {
+			return this.title;
 		}
-		public void setText(String text) {
-			this.text = text;
+		public void setTitle(String title) {
+			this.title = title;
+		}
+		public String getContent() {
+			return this.content;
+		}
+		public void setContent(String content) {
+			this.content = content;
 		}
 		public Long getDate() {
 			return this.date;

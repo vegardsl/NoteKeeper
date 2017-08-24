@@ -72,7 +72,6 @@ public class MainActivity extends AppCompatActivity implements AddNotePresenter 
 
 		@Override
 		public void present(AddNoteResult result) {
-				if (result.equals(AddNoteResult.SUCCESS))
-						refreshView();
+				if (result.equals(AddNoteResult.SUCCESS)) refreshView();
 		}
 }

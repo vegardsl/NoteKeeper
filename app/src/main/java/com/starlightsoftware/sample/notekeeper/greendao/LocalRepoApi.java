@@ -19,7 +19,8 @@ public class LocalRepoApi implements NoteGateway {
 		@Override
 		public void putNote(Note note) {
 				NoteEntity noteEntity = new NoteEntity();
-				noteEntity.setText(note.getContent());
+				noteEntity.setTitle(note.getTitle());
+				noteEntity.setContent(note.getContent());
 				noteEntity.setDate(note.getDate());
 				noteEntity.setKey(note.getId());
 				noteDao.insert(noteEntity);
@@ -29,10 +30,8 @@ public class LocalRepoApi implements NoteGateway {
 				List<NoteEntity> noteEntities = noteDao.queryBuilder().list();
 
 				ArrayList<Note> notes = new ArrayList<>();
-				for (NoteEntity noteEntity : noteEntities) {
-						notes.add(new Note(noteEntity.getText(), noteEntity.getText()));
-				}
-
+				for (NoteEntity noteEntity : noteEntities)
+						notes.add(new Note(noteEntity.getTitle(), noteEntity.getContent()));
 				return notes;
 		}
 
